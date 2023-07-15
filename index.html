@@ -1,0 +1,161 @@
+<!DOCTYPE html> <html><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Unit 5.Project</title>
+  <link href="style.css" rel="stylesheet" type="text/css">
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+<style>html, body {
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    height: 100%;
+    width: 100%;
+    font-family:  "Audiowide", sans-serif;
+    background-color: black;
+    text-align: center;
+    color: white;
+}
+
+img {
+    align-self: center;
+    border: solid;
+    border-color: red;
+    border-width: 5px;
+    width: 400px;
+    
+}
+.numBox, .box {
+  align-self: center;
+  margin-bottom: 20px;
+  border-color: lightsteelblue;
+  border-width: 3px;
+}
+.questOne, .questTwo {
+  align-self: center;
+  margin-bottom: 20px;
+  background-color: white;
+  border-color: red;
+  color: black;
+  font-family:  "Audiowide", sans-serif;
+}
+
+::placeholder{
+    font-family:  "Audiowide", sans-serif;
+}
+
+.hide, .finishOne, .finishTwo, .finishThree, .finishFour{
+  display: none;
+}
+
+p{
+  display: none;
+}</style></head>
+
+<body>
+  <p>message</p>
+  <div class="title">
+   <h1>WHAT KIND OF CAR ARE YOU?</h1>
+            <img src="https://cfx-wp-images.imgix.net/2020/01/Types-of-Cars-Collage.jpg?auto=compress%2Cformat&amp;ixlib=php-3.3.0&amp;s=4fea469b66200f7b621d9dc3c845f04e">
+        </div>
+        <div class="questions">
+            <h4>How old are you?</h4>
+          <input class="numBox" placeholder="15-18">
+          <button class="questOne">Enter</button>
+            <br>
+            <img src="https://media0.giphy.com/media/RNb7OzHOChGu0lABTv/giphy.gif?cid=ecf05e472g562ze6k4zp64nak079tnj9xwkif0b7wc8x0hat&amp;ep=v1_gifs_search&amp;rid=giphy.gif&amp;ct=g">
+          <div class="hide">
+            <h4 class="switch ">When driving do you prefer to drive fast or slow?</h4>
+          <input class="speed" placeholder="Speed">
+          <button class="questTwo">Enter</button>
+              <br>
+            <img src="https://media3.giphy.com/media/xT1Ra3KKVLg4HiiuGI/giphy.gif?cid=ecf05e47fvngqoh71ovwyy8w2nsac1han4um4m40b77hv6ay&amp;ep=v1_gifs_search&amp;rid=giphy.gif&amp;ct=g">
+          </div>
+        </div>
+  <!-- RESULTS -->
+    <div class="result">
+  <div class="finishOne">
+    <h1 class="finResOne">You are a Mustang! (Muscle Car)</h1>
+    <img src="https://autodesignmagazine.com/wp-content/uploads/2020/06/2020061000_Mustang.jpg">
+  </div>
+  <div class="finishTwo">
+    <h1 class="finResTwo">You are a Subaru! (SUV)</h1>
+    <img src="https://www.autotrader.com/wp-content/uploads/2020/08/2021-subaru-forester-front-left-side.jpg?w=1024">
+  </div>
+  <div class="finishThree">
+    <h1 class="finResThree">You are a Ford! (Truck)</h1>  
+    <img src="https://www.ford.com/is/image/content/dam/brand_ford/en_us/brand/trucks/f150/brand_f-150/dm/22_F150_R7A7574_Tremor_CAN.tif?croppathe=1_21x9&amp;wid=1440">
+  </div>
+  <div class="finishFour">
+    <h1 class="finResFour">You are a Ferrari! (Sports Car)</h1>
+    <img src="https://i.insider.com/599d8517289cc61e008b4947?width=1000&amp;format=jpeg&amp;auto=webp">
+  </div>
+    </div>
+  <div class="message">
+    <script src="script.js"></script>
+    </div>
+
+
+
+
+<script>
+/*__POPCODESTART__*/
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+var buttinOne = document.querySelector(".questOne");
+var buttinTwo = document.querySelector(".questTwo");
+var message = document.querySelector("p"); // let speedInput=
+// .finishOne, .finishTwo, .finishThree, .finishFour
+
+var age;
+
+buttinOne.onclick = function () {
+  var numInput = document.querySelector(".numBox"); // returns html element
+
+  var numValue = numInput.value; // returns string
+
+  var num = Number(numValue); // parse to number
+
+  console.log(_typeof(num), num >= 15, num <= 18);
+
+  if (num >= 15 && num <= 18) {
+    // numValue > 15 means numValue is greater than 15
+    // numValue >= 15 means numValue is greater than or equal to 15
+    // numValue === 15 means numValue equal to 15
+    document.querySelector(".hide").style.display = "block";
+  } else {
+    document.querySelector(".message").innerHTML = "Try Again. . .";
+  }
+
+  age = num;
+};
+
+buttinTwo.onclick = function () {
+  // clear original
+  document.querySelector(".finishFour").style.display = "none";
+  document.querySelector(".finResFour").style.display = "none";
+  document.querySelector(".finishOne").style.display = "none";
+  document.querySelector(".finResOne").style.display = "none";
+  document.querySelector(".finishTwo").style.display = "none";
+  document.querySelector(".finResTwo").style.display = "none";
+  document.querySelector(".finishThree").style.display = "none";
+  document.querySelector(".finResThree").style.display = "none";
+  var speed = document.querySelector(".speed").value.toLowerCase().trim();
+  console.log(document.querySelector(".speed").value);
+
+  if (speed === "fast" && age <= 18 && age >= 17) {
+    document.querySelector(".finishFour").style.display = "block";
+    document.querySelector(".finResFour").style.display = "block";
+  } else if (speed === "fast" && age <= 16 && age >= 15) {
+    document.querySelector(".finishOne").style.display = "block";
+    document.querySelector(".finResOne").style.display = "block";
+  } else if (speed === "slow" && age <= 16 && age >= 15) {
+    document.querySelector(".finishTwo").style.display = "block";
+    document.querySelector(".finResTwo").style.display = "block";
+  } else if (speed === "slow" && age <= 18 && age >= 17) {
+    document.querySelector(".finishThree").style.display = "block";
+    document.querySelector(".finResThree").style.display = "block";
+  }
+
+  console.log("speed: ", speed, ", age: ", age);
+};
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInBvcGNvZGVQcmV2aWV3LmpzIl0sIm5hbWVzIjpbImJ1dHRpbk9uZSIsImRvY3VtZW50IiwicXVlcnlTZWxlY3RvciIsImJ1dHRpblR3byIsIm1lc3NhZ2UiLCJhZ2UiLCJvbmNsaWNrIiwibnVtSW5wdXQiLCJudW1WYWx1ZSIsInZhbHVlIiwibnVtIiwiTnVtYmVyIiwiY29uc29sZSIsImxvZyIsInN0eWxlIiwiZGlzcGxheSIsImlubmVySFRNTCIsInNwZWVkIiwidG9Mb3dlckNhc2UiLCJ0cmltIl0sIm1hcHBpbmdzIjoiOztBQUFBLElBQUlBLFNBQVMsR0FBQ0MsUUFBUSxDQUFDQyxhQUFULENBQXVCLFdBQXZCLENBQWQ7QUFDQSxJQUFJQyxTQUFTLEdBQUNGLFFBQVEsQ0FBQ0MsYUFBVCxDQUF1QixXQUF2QixDQUFkO0FBRUEsSUFBSUUsT0FBTyxHQUFDSCxRQUFRLENBQUNDLGFBQVQsQ0FBdUIsR0FBdkIsQ0FBWixDLENBQ0E7QUFDQTs7QUFDQSxJQUFJRyxHQUFKOztBQUVBTCxTQUFTLENBQUNNLE9BQVYsR0FBa0IsWUFBVTtBQUMxQixNQUFJQyxRQUFRLEdBQUNOLFFBQVEsQ0FBQ0MsYUFBVCxDQUF1QixTQUF2QixDQUFiLENBRDBCLENBQ3NCOztBQUNoRCxNQUFJTSxRQUFRLEdBQUdELFFBQVEsQ0FBQ0UsS0FBeEIsQ0FGMEIsQ0FFSzs7QUFDL0IsTUFBSUMsR0FBRyxHQUFHQyxNQUFNLENBQUNILFFBQUQsQ0FBaEIsQ0FIMEIsQ0FHRTs7QUFDNUJJLEVBQUFBLE9BQU8sQ0FBQ0MsR0FBUixTQUFtQkgsR0FBbkIsR0FBd0JBLEdBQUcsSUFBSSxFQUEvQixFQUFtQ0EsR0FBRyxJQUFJLEVBQTFDOztBQUNBLE1BQUdBLEdBQUcsSUFBSSxFQUFQLElBQWFBLEdBQUcsSUFBSSxFQUF2QixFQUEwQjtBQUN4QjtBQUNBO0FBQ0E7QUFDRlQsSUFBQUEsUUFBUSxDQUFDQyxhQUFULENBQXVCLE9BQXZCLEVBQWdDWSxLQUFoQyxDQUFzQ0MsT0FBdEMsR0FB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LENBQUNDLGFBQVQsQ0FBdUIsY0FBdkIsRUFBdUNZLEtBQXZDLENBQTZDQyxPQUE3QyxHQUF1RCxPQUF2RDtBQUNKZCxJQUFBQSxRQUFRLENBQUNDLGFBQVQsQ0FBdUIsY0FBdkIsRUFBdUNZLEtBQXZDLENBQTZDQyxPQUE3QyxHQUF1RCxPQUF2RDtBQUNDOztBQUNESCxFQUFBQSxPQUFPLENBQUNDLEdBQVIsQ0FBWSxTQUFaLEVBQXVCSSxLQUF2QixFQUE4QixTQUE5QixFQUF5Q1osR0FBekM7QUFDSCxDQTNCRCIsInNvdXJjZXNDb250ZW50IjpbImxldCBidXR0aW5PbmU9ZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcIi5xdWVzdE9uZVwiKTtcbmxldCBidXR0aW5Ud289ZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcIi5xdWVzdFR3b1wiKTtcblxubGV0IG1lc3NhZ2U9ZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcInBcIik7XG4vLyBsZXQgc3BlZWRJbnB1dD1cbi8vIC5maW5pc2hPbmUsIC5maW5pc2hUd28sIC5maW5pc2hUaHJlZSwgLmZpbmlzaEZvdXJcbmxldCBhZ2U7XG5cbmJ1dHRpbk9uZS5vbmNsaWNrPWZ1bmN0aW9uKCl7XG4gIGxldCBudW1JbnB1dD1kb2N1bWVudC5xdWVyeVNlbGVjdG9yKFwiLm51bUJveFwiKTsgLy8gcmV0dXJucyBodG1sIGVsZW1lbnRcbiAgbGV0IG51bVZhbHVlID0gbnVtSW5wdXQudmFsdWU7IC8vIHJldHVybnMgc3RyaW5nXG4gIGxldCBudW0gPSBOdW1iZXIobnVtVmFsdWUpOyAvLyBwYXJzZSB0byBudW1iZXJcbiAgY29uc29sZS5sb2codHlwZW9mIG51bSwgbnVtID49IDE1LCBudW0gPD0gMTgpO1xuICBpZihudW0gPj0gMTUgJiYgbnVtIDw9IDE4KXsgXG4gICAgLy8gbnVtVmFsdWUgPiAxNSBtZWFucyBudW1WYWx1ZSBpcyBncmVhdGVyIHRoYW4gMTVcbiAgICAvLyBudW1WYWx1ZSA+PSAxNSBtZWFucyBudW1WYWx1ZSBpcyBncmVhdGVyIHRoYW4gb3IgZXF1YWwgdG8gMTVcbiAgICAvLyBudW1WYWx1ZSA9PT0gMTUgbWVhbnMgbnVtVmFsdWUgZXF1YWwgdG8gMTVcbiAgZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcIi5oaWRlXCIpLnN0eWxlLmRpc3BsYXk9XCJibG9ja1wiO1xufSBlbHNle1xuICAgIGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCIubWVzc2FnZVwiKS5pbm5lckhUTUw9XCJUcnkgQWdhaW4uIC4gLlwiO1xufVxuICAgIGFnZSA9IG51bTtcbiAgXG59O1xuXG5idXR0aW5Ud28ub25jbGljayA9IGZ1bmN0aW9uKCkge1xuICAgIC8vIGNsZWFyIG9yaWdpbmFsXG4gICAgIGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCIuZmluaXNoRm91clwiKS5zdHlsZS5kaXNwbGF5ID0gXCJub25lXCI7XG4gIFx0XHRkb2N1bWVudC5xdWVyeVNlbGVjdG9yKFwiLmZpblJlc0ZvdXJcIikuc3R5bGUuZGlzcGxheSA9IFwibm9uZVwiO1xuICAgICAgICAgZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcIi5maW5pc2hPbmVcIikuc3R5bGUuZGlzcGxheSA9IFwibm9uZVwiO1xuICBcdFx0ZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcIi5maW5SZXNPbmVcIikuc3R5bGUuZGlzcGxheSA9IFwibm9uZVwiO1xuICAgICAgICAgICAgZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcIi5maW5pc2hUd29cIikuc3R5bGUuZGlzcGxheSA9IFwibm9uZVwiO1xuICBcdFx0ZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcIi5maW5SZXNUd29cIikuc3R5bGUuZGlzcGxheSA9IFwibm9uZVwiO1xuICAgICAgZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcIi5maW5pc2hUaHJlZVwiKS5zdHlsZS5kaXNwbGF5ID0gXCJub25lXCI7XG4gIFx0XHRkb2N1bWVudC5xdWVyeVNlbGVjdG9yKFwiLmZpblJlc1RocmVlXCIpLnN0eWxlLmRpc3BsYXkgPSBcIm5vbmVcIjtcbiAgICBcbiAgICAgIGxldCBzcGVlZCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCIuc3BlZWRcIikudmFsdWUudG9Mb3dlckNhc2UoKS50cmltKCk7XG4gICAgY29uc29sZS5sb2coZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcIi5zcGVlZFwiKS52YWx1ZSk7XG4gICAgaWYoc3BlZWQgPT09IFwiZmFzdFwiICYmIGFnZSA8PSAxOCAmJiBhZ2UgPj0gMTcpe1xuICAgICAgICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKFwiLmZpbmlzaEZvdXJcIikuc3R5bGUuZGlzcGxheSA9IFwiYmxvY2tcIjtcbiAgXHRcdGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCIuZmluUmVzRm91clwiKS5zdHlsZS5kaXNwbGF5ID0gXCJibG9ja1wiO1xuICAgIH0gZWxzZSBpZiAoc3BlZWQgPT09IFwiZmFzdFwiICYmIGFnZSA8PSAxNiAmJiBhZ2UgPj0gMTUpe1xuICAgICAgICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKFwiLmZpbmlzaE9uZVwiKS5zdHlsZS5kaXNwbGF5ID0gXCJibG9ja1wiO1xuICBcdFx0ZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcIi5maW5SZXNPbmVcIikuc3R5bGUuZGlzcGxheSA9IFwiYmxvY2tcIjtcbiAgICB9IGVsc2UgaWYgKHNwZWVkID09PSBcInNsb3dcIiAmJiBhZ2UgPD0gMTYgJiYgYWdlID49IDE1KXtcbiAgICAgICAgZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcIi5maW5pc2hUd29cIikuc3R5bGUuZGlzcGxheSA9IFwiYmxvY2tcIjtcbiAgXHRcdGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCIuZmluUmVzVHdvXCIpLnN0eWxlLmRpc3BsYXkgPSBcImJsb2NrXCI7XG4gICAgfSBlbHNlIGlmIChzcGVlZCA9PT0gXCJzbG93XCIgJiYgYWdlIDw9IDE4ICYmIGFnZSA+PSAxNyApe1xuICAgICAgICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKFwiLmZpbmlzaFRocmVlXCIpLnN0eWxlLmRpc3BsYXkgPSBcImJsb2NrXCI7XG4gIFx0XHRkb2N1bWVudC5xdWVyeVNlbGVjdG9yKFwiLmZpblJlc1RocmVlXCIpLnN0eWxlLmRpc3BsYXkgPSBcImJsb2NrXCI7XG4gICAgfVxuICAgIGNvbnNvbGUubG9nKFwic3BlZWQ6IFwiLCBzcGVlZCwgXCIsIGFnZTogXCIsIGFnZSk7XG59O1xuIl19</script></body></html>
