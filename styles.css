@@ -1,0 +1,46 @@
+html, body {
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    height: 100%;
+    width: 100%;
+    font-family:  "Audiowide", sans-serif;
+    background-color: black;
+    text-align: center;
+    color: white;
+}
+
+img {
+    align-self: center;
+    border: solid;
+    border-color: red;
+    border-width: 5px;
+    width: 400px;
+    
+}
+.numBox, .box {
+  align-self: center;
+  margin-bottom: 20px;
+  border-color: lightsteelblue;
+  border-width: 3px;
+}
+.questOne, .questTwo {
+  align-self: center;
+  margin-bottom: 20px;
+  background-color: white;
+  border-color: red;
+  color: black;
+  font-family:  "Audiowide", sans-serif;
+}
+
+::placeholder{
+    font-family:  "Audiowide", sans-serif;
+}
+
+.hide, .finishOne, .finishTwo, .finishThree, .finishFour{
+  display: none;
+}
+
+p{
+  display: none;
+}
